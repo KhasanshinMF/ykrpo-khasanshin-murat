@@ -1,9 +1,7 @@
 package base;
 
 import manager.ApplicationManager;
-import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.*;
 
 public class TestBase {
 
@@ -11,11 +9,6 @@ public class TestBase {
 
     @Before
     public void setUp() {
-        app = new ApplicationManager();
-    }
-
-    @After
-    public void tearDown() {
-        app.stop();
+        app = ApplicationManager.getInstance();
     }
 }

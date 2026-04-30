@@ -17,4 +17,8 @@ public class NavigationHelper extends HelperBase{
     public void openProductsPage() {
         driver.get(BASE_URL + "/products");
     }
+
+    public void openCartPage() {
+        driver.get(BASE_URL + "/view_cart");
+    }
 }

@@ -2,6 +2,7 @@ package tests;
 
 import base.TestBase;
 import model.AccountData;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class AuthTest extends TestBase {
@@ -11,6 +12,7 @@ public class AuthTest extends TestBase {
         AccountData user = new AccountData("mur@gmail.com", "1234");
         app.navigation().openLoginPage();
         app.auth().login(user);
+        Assert.assertTrue(app.auth().isLoggedIn());
     }
 }
 

@@ -24,4 +24,19 @@ public class CartHelper extends HelperBase{
         wait.until(ExpectedConditions.elementToBeClickable(modalButton));
         click(modalButton);
     }
+
+    public void removeProductFromCart() {
+        By deleteButton = By.cssSelector(".fa-times");
+        wait.until(ExpectedConditions.elementToBeClickable(deleteButton));
+        click(deleteButton);
+    }
+
+    public boolean isCartEmpty() {
+        return driver.findElements(By.cssSelector(".cart_info")).isEmpty()
+                || driver.getPageSource().contains("Cart is empty");
+    }
+
+    public boolean isProductAdded() {
+        return driver.findElements(By.cssSelector(".modal-content")).size() > 0;
+    }
 }

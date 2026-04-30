@@ -8,17 +8,27 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ApplicationManager {
 
+    private static ThreadLocal<ApplicationManager> app = new ThreadLocal<>();
     private WebDriver driver;
 
     private NavigationHelper navigationHelper;
     private AuthHelper authHelper;
     private CartHelper cartHelper;
 
-    public ApplicationManager() {
+    private ApplicationManager() {
         driver = new FirefoxDriver();
         navigationHelper = new NavigationHelper(this);
         authHelper = new AuthHelper(this);
         cartHelper = new CartHelper(this);
+    }
+
+    public static ApplicationManager getInstance() {
+        if (app.get() == null) {
+            ApplicationManager newInstance = new ApplicationManager();
+            app.set(newInstance);
+        }
+        return app.get();
+
     }
 
     public WebDriver getDriver() {
@@ -38,6 +48,8 @@ public class ApplicationManager {
     }
 
     public void stop() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }

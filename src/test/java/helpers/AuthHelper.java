@@ -16,4 +16,7 @@ public class AuthHelper extends HelperBase {
         click(By.cssSelector(".btn:nth-child(4)"));
     }
 
+    public boolean isLoggedIn() {
+        return driver.findElements(By.linkText("Logout")).size() > 0;
+    }
 }
