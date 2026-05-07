@@ -2,12 +2,13 @@ package base;
 
 import manager.ApplicationManager;
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 public class TestBase {
 
     protected ApplicationManager app;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         app = ApplicationManager.getInstance();
     }

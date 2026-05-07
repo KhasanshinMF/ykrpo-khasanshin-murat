@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<products>
+    <product>
+        <name>Blue Top</name>
+    </product>
+    <product>
+        <name>Men Tshirt</name>
+    </product>
+    <product>
+        <name>Sleeveless Dress</name>
+    </product>
+</products>

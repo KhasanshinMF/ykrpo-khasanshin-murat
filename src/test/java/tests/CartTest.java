@@ -1,15 +1,20 @@
 package tests;
 
 import base.TestBase;
+import model.ProductData;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.Assert;
-import org.junit.Test;
 
 public class CartTest extends TestBase {
 
-    @Test
-    public void addProductToCart() {
+    @ParameterizedTest
+    @MethodSource("providers.DataProviders#productDataFromXml")
+    public void addProductToCart(ProductData product) {
         app.navigation().openProductsPage();
-        app.cart().addFirstProductToCart();
+        app.cart().addProductToCartByName(product.getName());
         app.cart().confirmAddToCart();
 
         Assert.assertTrue(app.cart().isProductAdded());

@@ -2,6 +2,7 @@ package helpers;
 
 import manager.ApplicationManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -17,6 +18,23 @@ public class CartHelper extends HelperBase{
                 .moveToElement(driver.findElement(product))
                 .perform();
         click(By.cssSelector(".col-sm-4:nth-child(3) .add-to-cart"));
+    }
+
+    public void addProductToCartByName(String productName) {
+
+        By productCard = By.xpath(
+                "//p[text()='" + productName + "']/ancestor::div[@class='product-image-wrapper']"
+        );
+
+        WebElement product = driver.findElement(productCard);
+
+        new Actions(driver)
+                .moveToElement(product)
+                .perform();
+
+        WebElement addButton = product.findElement(By.cssSelector(".add-to-cart"));
+
+        addButton.click();
     }
 
     public void confirmAddToCart() {
