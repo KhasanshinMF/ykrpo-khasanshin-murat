@@ -1,7 +1,6 @@
 package base;
 
 import manager.ApplicationManager;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 
 public class TestBase {

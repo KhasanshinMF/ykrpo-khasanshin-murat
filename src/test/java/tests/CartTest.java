@@ -1,14 +1,15 @@
 package tests;
 
-import base.TestBase;
+import base.AuthBase;
 import model.ProductData;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.Assert;
 
-public class CartTest extends TestBase {
+
+public class CartTest extends AuthBase {
 
     @ParameterizedTest
     @MethodSource("providers.DataProviders#productDataFromXml")
@@ -17,7 +18,7 @@ public class CartTest extends TestBase {
         app.cart().addProductToCartByName(product.getName());
         app.cart().confirmAddToCart();
 
-        Assert.assertTrue(app.cart().isProductAdded());
+        Assertions.assertTrue(app.cart().isProductAdded());
     }
 
     @Test
@@ -29,6 +30,6 @@ public class CartTest extends TestBase {
         app.navigation().openCartPage();
         app.cart().removeProductFromCart();
 
-        Assert.assertTrue(app.cart().isCartEmpty());
+        Assertions.assertTrue(app.cart().isCartEmpty());
     }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+
+    <baseUrl>
+        https://automationexercise.com
+    </baseUrl>
+
+    <login>mur@gmail.com</login>
+
+    <password>1234</password>
+
+</settings>

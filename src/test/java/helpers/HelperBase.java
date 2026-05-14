@@ -13,7 +13,10 @@ public class HelperBase {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
+    protected ApplicationManager app;
+
     public HelperBase(ApplicationManager app) {
+        this.app = app;
         this.driver = app.getDriver();
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
